@@ -1,0 +1,24 @@
+{% extends 'Admin/adminhome.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-xl-12">
+<div class="card mb-6">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Student Feedback Reply
+    </div>
+    <form method = "POST">
+        {% csrf_token %}
+    <div class="card-body">
+        <div class="form-floating">
+            <label for="floatingTextarea">Reply</label>
+            <textarea class="form-control" cols="5" rows="7" id="floatingTextarea" name="reply"></textarea>
+        </div>
+        <br>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+
+</div>
+</div>
+{% endblock %}

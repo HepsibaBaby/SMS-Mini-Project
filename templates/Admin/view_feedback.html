@@ -1,0 +1,46 @@
+{% extends 'Admin/adminhome.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-xl-12">
+<div class="card mb-6">
+
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Student Feedback Form
+    </div>
+    <div class="card-body">
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl.No.</th>
+      <th scope="col">Name</th>
+      <th scope="col">Subject</th>
+      <th scope="col">Description</th>
+      <th scope="col">Date</th>
+      <th scope="col">Reply</th>
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in admin_fb %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+      <td>{{i.subject}}</td>
+      <td>{{i.description}}</td>
+      <td>{{i.date}}</td>
+      <td>
+          {% if i.reply == None %}
+          <a href="{% url 'addreply' i.id %}"><button type="button" class="btn btn-primary">Reply</button></a>
+          {% else %}
+          {{i.reply}}
+          {% endif %}
+      </td>
+</tr>
+  {% endfor %}
+     </tbody>
+</table>
+    </div>
+</div>
+</div>
+{% endblock %}

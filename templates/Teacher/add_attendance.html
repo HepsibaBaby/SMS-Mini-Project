@@ -1,0 +1,46 @@
+{% extends 'Teacher/teacher_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-xl-12">
+<div class="card mb-6">
+
+      <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Attendance
+    </div>
+    <div class="card-body">
+
+      <table class="table">
+  <thead>
+    <tr>
+      <th scope="col">Sl.No.</th>
+      <th scope="col">Name</th>
+<!--      <th scope="col">Date</th>-->
+      <th scope="col">Attendance</th>
+<!--      <th scope="col">Time</th>-->
+
+    </tr>
+  </thead>
+  <tbody>
+  {% for i in student %}
+    <tr>
+      <th scope="row">{{forloop.counter}}</th>
+      <td>{{i.name}}</td>
+<!--      <td>{{i.date}}</td>-->
+<!--      <td>{{i.attendance}}</td>-->
+<!--      <td>{{i.time}}</td>-->
+      <td>
+        <button type="submit" class="btn btn-primary">
+          <a href="{% url 'marks' i.id %}">Mark</a>
+        </button>
+      </td>
+    </tr>
+  {% endfor %}
+
+  </tbody>
+</table>
+    </div>
+
+</div>
+</div>
+{% endblock %}

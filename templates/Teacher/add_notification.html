@@ -1,0 +1,20 @@
+{% extends 'Teacher/teacher_home.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="col-xl-9">
+<div class="card mb-6">
+    <div class="card-header">
+        <i class="fas fa-chart-area me-1"></i>
+        Notification Form
+    </div>
+    <form method="POST">
+        {% csrf_token %}
+    <div class="card-body">
+        {{notif_form|crispy}}
+        <br>
+       <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+        </form>
+</div>
+</div>
+{% endblock %}
